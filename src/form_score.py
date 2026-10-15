@@ -72,6 +72,6 @@ def diez_ultimos_partidos(df,jugador,fecha,valor_ronda):
         ((df["winner_name"]==jugador) | (df["loser_name"]==jugador))
             &
         ((df["tourney_date"]<fecha) | ((df["tourney_date"]==fecha) & (df["valor_ronda"]<valor_ronda)))
-    ].sort_values(by="valor_ronda,tourney_date",ascending=False).head(10)
+    ].sort_values(by=["tourney_date", "valor_ronda"], ascending=[False,False]).head(10)
     return df_jugador
 
